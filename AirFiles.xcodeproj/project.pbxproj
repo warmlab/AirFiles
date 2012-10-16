@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		521422D0162C083200430CA4 /* AFServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521422CF162C083200430CA4 /* AFServiceViewController.m */; };
+		521422D3162C087B00430CA4 /* AFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521422D2162C087B00430CA4 /* AFDetailViewController.m */; };
+		5232DFF5162D2B7700495962 /* AFProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232DFF4162D2B7700495962 /* AFProtocolViewController.m */; };
+		5232E003162D38F800495962 /* AFBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232E002162D38F800495962 /* AFBluetooth.m */; };
+		52CB1431162BD5F800208E79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB1430162BD5F800208E79 /* UIKit.framework */; };
+		52CB1433162BD5F800208E79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB1432162BD5F800208E79 /* Foundation.framework */; };
+		52CB1435162BD5F800208E79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB1434162BD5F800208E79 /* CoreGraphics.framework */; };
+		52CB1437162BD5F800208E79 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB1436162BD5F800208E79 /* CoreData.framework */; };
+		52CB143D162BD5F800208E79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CB143B162BD5F800208E79 /* InfoPlist.strings */; };
+		52CB143F162BD5F800208E79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CB143E162BD5F800208E79 /* main.m */; };
+		52CB1443162BD5F800208E79 /* AFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CB1442162BD5F800208E79 /* AFAppDelegate.m */; };
+		52CB1445162BD5F800208E79 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1444162BD5F800208E79 /* Default.png */; };
+		52CB1447162BD5F800208E79 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1446162BD5F800208E79 /* Default@2x.png */; };
+		52CB1449162BD5F800208E79 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1448162BD5F800208E79 /* Default-568h@2x.png */; };
+		52CB144C162BD5F800208E79 /* AirFiles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */; };
+		52CB1453162BD60C00208E79 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB1452162BD60B00208E79 /* CoreBluetooth.framework */; };
+		52CB1455162BD67400208E79 /* air_files_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1454162BD67400208E79 /* air_files_iphone.storyboard */; };
+		52CB1497162BD96800208E79 /* AFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CB1496162BD96800208E79 /* AFMainViewController.m */; };
+		52CB1499162BDA2100208E79 /* air_files_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		521422CE162C083200430CA4 /* AFServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFServiceViewController.h; sourceTree = "<group>"; };
+		521422CF162C083200430CA4 /* AFServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFServiceViewController.m; sourceTree = "<group>"; };
+		521422D1162C087B00430CA4 /* AFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDetailViewController.h; sourceTree = "<group>"; };
+		521422D2162C087B00430CA4 /* AFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDetailViewController.m; sourceTree = "<group>"; };
+		5232DFF3162D2B7700495962 /* AFProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFProtocolViewController.h; sourceTree = "<group>"; };
+		5232DFF4162D2B7700495962 /* AFProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFProtocolViewController.m; sourceTree = "<group>"; };
+		5232E001162D38F800495962 /* AFBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFBluetooth.h; path = AirFiles/AFBluetooth.h; sourceTree = "<group>"; };
+		5232E002162D38F800495962 /* AFBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFBluetooth.m; path = AirFiles/AFBluetooth.m; sourceTree = "<group>"; };
+		52CB142C162BD5F800208E79 /* AirFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CB1430162BD5F800208E79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		52CB1432162BD5F800208E79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52CB1434162BD5F800208E79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		52CB1436162BD5F800208E79 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52CB143A162BD5F800208E79 /* AirFiles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirFiles-Info.plist"; sourceTree = "<group>"; };
+		52CB143C162BD5F800208E79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52CB143E162BD5F800208E79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52CB1440162BD5F800208E79 /* AirFiles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirFiles-Prefix.pch"; sourceTree = "<group>"; };
+		52CB1441162BD5F800208E79 /* AFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFAppDelegate.h; sourceTree = "<group>"; };
+		52CB1442162BD5F800208E79 /* AFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFAppDelegate.m; sourceTree = "<group>"; };
+		52CB1444162BD5F800208E79 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		52CB1446162BD5F800208E79 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		52CB1448162BD5F800208E79 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		52CB144B162BD5F800208E79 /* AirFiles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirFiles.xcdatamodel; sourceTree = "<group>"; };
+		52CB1452162BD60B00208E79 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		52CB1454162BD67400208E79 /* air_files_iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = air_files_iphone.storyboard; sourceTree = "<group>"; };
+		52CB1495162BD96800208E79 /* AFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMainViewController.h; sourceTree = "<group>"; };
+		52CB1496162BD96800208E79 /* AFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMainViewController.m; sourceTree = "<group>"; };
+		52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = air_files_ipad.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52CB1429162BD5F800208E79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CB1453162BD60C00208E79 /* CoreBluetooth.framework in Frameworks */,
+				52CB1431162BD5F800208E79 /* UIKit.framework in Frameworks */,
+				52CB1433162BD5F800208E79 /* Foundation.framework in Frameworks */,
+				52CB1435162BD5F800208E79 /* CoreGraphics.framework in Frameworks */,
+				52CB1437162BD5F800208E79 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5232DFEB162D271300495962 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		5232DFFA162D37F800495962 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				5232E001162D38F800495962 /* AFBluetooth.h */,
+				5232E002162D38F800495962 /* AFBluetooth.m */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		52CB1421162BD5F800208E79 = {
+			isa = PBXGroup;
+			children = (
+				5232DFFA162D37F800495962 /* Bluetooth */,
+				5232DFEB162D271300495962 /* Entity */,
+				52CB1438162BD5F800208E79 /* AirFiles */,
+				52CB142F162BD5F800208E79 /* Frameworks */,
+				52CB142D162BD5F800208E79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52CB142D162BD5F800208E79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52CB142C162BD5F800208E79 /* AirFiles.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52CB142F162BD5F800208E79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52CB1452162BD60B00208E79 /* CoreBluetooth.framework */,
+				52CB1430162BD5F800208E79 /* UIKit.framework */,
+				52CB1432162BD5F800208E79 /* Foundation.framework */,
+				52CB1434162BD5F800208E79 /* CoreGraphics.framework */,
+				52CB1436162BD5F800208E79 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52CB1438162BD5F800208E79 /* AirFiles */ = {
+			isa = PBXGroup;
+			children = (
+				52CB1495162BD96800208E79 /* AFMainViewController.h */,
+				52CB1496162BD96800208E79 /* AFMainViewController.m */,
+				52CB1441162BD5F800208E79 /* AFAppDelegate.h */,
+				52CB1442162BD5F800208E79 /* AFAppDelegate.m */,
+				52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */,
+				52CB1439162BD5F800208E79 /* Supporting Files */,
+				52CB1454162BD67400208E79 /* air_files_iphone.storyboard */,
+				52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */,
+				5232DFF3162D2B7700495962 /* AFProtocolViewController.h */,
+				5232DFF4162D2B7700495962 /* AFProtocolViewController.m */,
+				521422CE162C083200430CA4 /* AFServiceViewController.h */,
+				521422CF162C083200430CA4 /* AFServiceViewController.m */,
+				521422D1162C087B00430CA4 /* AFDetailViewController.h */,
+				521422D2162C087B00430CA4 /* AFDetailViewController.m */,
+			);
+			path = AirFiles;
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+		52CB1439162BD5F800208E79 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52CB143A162BD5F800208E79 /* AirFiles-Info.plist */,
+				52CB143B162BD5F800208E79 /* InfoPlist.strings */,
+				52CB143E162BD5F800208E79 /* main.m */,
+				52CB1440162BD5F800208E79 /* AirFiles-Prefix.pch */,
+				52CB1444162BD5F800208E79 /* Default.png */,
+				52CB1446162BD5F800208E79 /* Default@2x.png */,
+				52CB1448162BD5F800208E79 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52CB142B162BD5F800208E79 /* AirFiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CB144F162BD5F800208E79 /* Build configuration list for PBXNativeTarget "AirFiles" */;
+			buildPhases = (
+				52CB1428162BD5F800208E79 /* Sources */,
+				52CB1429162BD5F800208E79 /* Frameworks */,
+				52CB142A162BD5F800208E79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirFiles;
+			productName = AirFiles;
+			productReference = 52CB142C162BD5F800208E79 /* AirFiles.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52CB1423162BD5F800208E79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AF;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Websense;
+			};
+			buildConfigurationList = 52CB1426162BD5F800208E79 /* Build configuration list for PBXProject "AirFiles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52CB1421162BD5F800208E79;
+			productRefGroup = 52CB142D162BD5F800208E79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52CB142B162BD5F800208E79 /* AirFiles */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52CB142A162BD5F800208E79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CB143D162BD5F800208E79 /* InfoPlist.strings in Resources */,
+				52CB1445162BD5F800208E79 /* Default.png in Resources */,
+				52CB1447162BD5F800208E79 /* Default@2x.png in Resources */,
+				52CB1449162BD5F800208E79 /* Default-568h@2x.png in Resources */,
+				52CB1455162BD67400208E79 /* air_files_iphone.storyboard in Resources */,
+				52CB1499162BDA2100208E79 /* air_files_ipad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52CB1428162BD5F800208E79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CB143F162BD5F800208E79 /* main.m in Sources */,
+				52CB1443162BD5F800208E79 /* AFAppDelegate.m in Sources */,
+				52CB144C162BD5F800208E79 /* AirFiles.xcdatamodeld in Sources */,
+				52CB1497162BD96800208E79 /* AFMainViewController.m in Sources */,
+				521422D0162C083200430CA4 /* AFServiceViewController.m in Sources */,
+				521422D3162C087B00430CA4 /* AFDetailViewController.m in Sources */,
+				5232DFF5162D2B7700495962 /* AFProtocolViewController.m in Sources */,
+				5232E003162D38F800495962 /* AFBluetooth.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52CB143B162BD5F800208E79 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB143C162BD5F800208E79 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52CB144D162BD5F800208E79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: xusheng li (N759LM28U7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "CA6A131F-3C6F-40C8-A908-795C218EDC16";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52CB144E162BD5F800208E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xusheng li";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "586A4DE7-8AF8-481B-B488-9F083F8BCA61";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52CB1450162BD5F800208E79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirFiles/AirFiles-Prefix.pch";
+				INFOPLIST_FILE = "AirFiles/AirFiles-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52CB1451162BD5F800208E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirFiles/AirFiles-Prefix.pch";
+				INFOPLIST_FILE = "AirFiles/AirFiles-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52CB1426162BD5F800208E79 /* Build configuration list for PBXProject "AirFiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CB144D162BD5F800208E79 /* Debug */,
+				52CB144E162BD5F800208E79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52CB144F162BD5F800208E79 /* Build configuration list for PBXNativeTarget "AirFiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CB1450162BD5F800208E79 /* Debug */,
+				52CB1451162BD5F800208E79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52CB144B162BD5F800208E79 /* AirFiles.xcdatamodel */,
+			);
+			currentVersion = 52CB144B162BD5F800208E79 /* AirFiles.xcdatamodel */;
+			path = AirFiles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 52CB1423162BD5F800208E79 /* Project object */;
+}
