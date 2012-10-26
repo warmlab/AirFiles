@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 
 #import "AFBluetooth.h"
+#import "AFServerAddViewController.h"
 
-@interface AFServiceViewController : UITableViewController<CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface AFServiceViewController : UITableViewController<CBCentralManagerDelegate, CBPeripheralDelegate, AFServerAddViewControllerDelegate>
 {
 	//NSInteger service_type;
 	//NSString *title;
+	UIPopoverController *popoverController;
 }
 
 @property (atomic) NSInteger service_type;
 @property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

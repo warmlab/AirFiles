@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AFServerAddViewController : UIViewController
+@protocol AFServerAddViewControllerDelegate <NSObject>
+
+-(void)reload_data_and_close;
+
+@end
+
+@interface AFServerAddViewController : UIViewController<UIPopoverControllerDelegate>
+
+@property (nonatomic, retain) id delegate;
+@property (nonatomic, retain) IBOutlet UITextField *input_name, *input_url;
+@property (nonatomic, retain) IBOutlet UINavigationBar *title_bar;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

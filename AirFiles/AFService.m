@@ -2,19 +2,20 @@
 //  AFService.m
 //  AirFiles
 //
-//  Created by test on 10/19/12.
+//  Created by test on 10/26/12.
 //  Copyright (c) 2012 Websense. All rights reserved.
 //
 
 #import "AFService.h"
-#import "AFProtocol.h"
+
+#import "AFCommon.h"
 
 
 @implementation AFService
 
 @dynamic name;
-@dynamic pk;
 @dynamic url;
+@dynamic pk;
 @dynamic protocol;
 
 @end

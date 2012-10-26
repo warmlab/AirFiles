@@ -1,18 +1,18 @@
 //
-//  AFMainViewController.m
+//  AFSplitViewController.m
 //  AirFiles
 //
-//  Created by test on 10/15/12.
+//  Created by test on 10/26/12.
 //  Copyright (c) 2012 Websense. All rights reserved.
 //
 
-#import "AFMainViewController.h"
+#import "AFSplitViewController.h"
 
-@interface AFMainViewController ()
+@interface AFSplitViewController ()
 
 @end
 
-@implementation AFMainViewController
+@implementation AFSplitViewController
 
 @synthesize managedObjectContext;
 
@@ -35,11 +35,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-	return YES;
 }
 
 @end

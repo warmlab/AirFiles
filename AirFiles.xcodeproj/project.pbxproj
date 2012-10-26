@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5203825516312D420011FC2F /* AFFtp.m in Sources */ = {isa = PBXBuildFile; fileRef = 5203825416312D420011FC2F /* AFFtp.m */; };
+		5203825816312DC10011FC2F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5203825716312DC10011FC2F /* CFNetwork.framework */; };
 		521422D0162C083200430CA4 /* AFServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521422CF162C083200430CA4 /* AFServiceViewController.m */; };
 		521422D3162C087B00430CA4 /* AFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521422D2162C087B00430CA4 /* AFDetailViewController.m */; };
 		5232DFF5162D2B7700495962 /* AFProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232DFF4162D2B7700495962 /* AFProtocolViewController.m */; };
@@ -26,9 +28,16 @@
 		52CB1455162BD67400208E79 /* air_files_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1454162BD67400208E79 /* air_files_iphone.storyboard */; };
 		52CB1497162BD96800208E79 /* AFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CB1496162BD96800208E79 /* AFMainViewController.m */; };
 		52CB1499162BDA2100208E79 /* air_files_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */; };
+		52E1599216394BD100649596 /* AFServerAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599116394BD100649596 /* AFServerAddViewController.m */; };
+		52E1599B163A79B100649596 /* AFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599A163A79B100649596 /* AFService.m */; };
+		52E1599E163A824A00649596 /* AFSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599D163A824A00649596 /* AFSplitViewController.m */; };
+		52E159A1163A833100649596 /* AFServiceOperate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E159A0163A833100649596 /* AFServiceOperate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5203825316312D420011FC2F /* AFFtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFFtp.h; path = AirFiles/AFFtp.h; sourceTree = "<group>"; };
+		5203825416312D420011FC2F /* AFFtp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFFtp.m; path = AirFiles/AFFtp.m; sourceTree = "<group>"; };
+		5203825716312DC10011FC2F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		521422CE162C083200430CA4 /* AFServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFServiceViewController.h; sourceTree = "<group>"; };
 		521422CF162C083200430CA4 /* AFServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFServiceViewController.m; sourceTree = "<group>"; };
 		521422D1162C087B00430CA4 /* AFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDetailViewController.h; sourceTree = "<group>"; };
@@ -57,6 +66,15 @@
 		52CB1495162BD96800208E79 /* AFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMainViewController.h; sourceTree = "<group>"; };
 		52CB1496162BD96800208E79 /* AFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMainViewController.m; sourceTree = "<group>"; };
 		52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = air_files_ipad.storyboard; sourceTree = "<group>"; };
+		52E159861634EA8E00649596 /* AFCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCommon.h; sourceTree = "<group>"; };
+		52E1599016394BD100649596 /* AFServerAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFServerAddViewController.h; sourceTree = "<group>"; };
+		52E1599116394BD100649596 /* AFServerAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFServerAddViewController.m; sourceTree = "<group>"; };
+		52E15999163A79B100649596 /* AFService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFService.h; path = AirFiles/AFService.h; sourceTree = "<group>"; };
+		52E1599A163A79B100649596 /* AFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFService.m; path = AirFiles/AFService.m; sourceTree = "<group>"; };
+		52E1599C163A824900649596 /* AFSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSplitViewController.h; sourceTree = "<group>"; };
+		52E1599D163A824A00649596 /* AFSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSplitViewController.m; sourceTree = "<group>"; };
+		52E1599F163A833100649596 /* AFServiceOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFServiceOperate.h; path = AirFiles/AFServiceOperate.h; sourceTree = "<group>"; };
+		52E159A0163A833100649596 /* AFServiceOperate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFServiceOperate.m; path = AirFiles/AFServiceOperate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5203825816312DC10011FC2F /* CFNetwork.framework in Frameworks */,
 				52CB1453162BD60C00208E79 /* CoreBluetooth.framework in Frameworks */,
 				52CB1431162BD5F800208E79 /* UIKit.framework in Frameworks */,
 				52CB1433162BD5F800208E79 /* Foundation.framework in Frameworks */,
@@ -78,23 +97,30 @@
 		5232DFEB162D271300495962 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */,
+				52E15999163A79B100649596 /* AFService.h */,
+				52E1599A163A79B100649596 /* AFService.m */,
+				52E1599F163A833100649596 /* AFServiceOperate.h */,
+				52E159A0163A833100649596 /* AFServiceOperate.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
 		};
-		5232DFFA162D37F800495962 /* Bluetooth */ = {
+		5232DFFA162D37F800495962 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				5232E001162D38F800495962 /* AFBluetooth.h */,
 				5232E002162D38F800495962 /* AFBluetooth.m */,
+				5203825316312D420011FC2F /* AFFtp.h */,
+				5203825416312D420011FC2F /* AFFtp.m */,
 			);
-			name = Bluetooth;
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		52CB1421162BD5F800208E79 = {
 			isa = PBXGroup;
 			children = (
-				5232DFFA162D37F800495962 /* Bluetooth */,
+				5232DFFA162D37F800495962 /* Protocol */,
 				5232DFEB162D271300495962 /* Entity */,
 				52CB1438162BD5F800208E79 /* AirFiles */,
 				52CB142F162BD5F800208E79 /* Frameworks */,
@@ -113,6 +139,7 @@
 		52CB142F162BD5F800208E79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5203825716312DC10011FC2F /* CFNetwork.framework */,
 				52CB1452162BD60B00208E79 /* CoreBluetooth.framework */,
 				52CB1430162BD5F800208E79 /* UIKit.framework */,
 				52CB1432162BD5F800208E79 /* Foundation.framework */,
@@ -129,16 +156,20 @@
 				52CB1496162BD96800208E79 /* AFMainViewController.m */,
 				52CB1441162BD5F800208E79 /* AFAppDelegate.h */,
 				52CB1442162BD5F800208E79 /* AFAppDelegate.m */,
-				52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */,
 				52CB1439162BD5F800208E79 /* Supporting Files */,
 				52CB1454162BD67400208E79 /* air_files_iphone.storyboard */,
 				52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */,
+				52E1599C163A824900649596 /* AFSplitViewController.h */,
+				52E1599D163A824A00649596 /* AFSplitViewController.m */,
 				5232DFF3162D2B7700495962 /* AFProtocolViewController.h */,
 				5232DFF4162D2B7700495962 /* AFProtocolViewController.m */,
 				521422CE162C083200430CA4 /* AFServiceViewController.h */,
 				521422CF162C083200430CA4 /* AFServiceViewController.m */,
+				52E1599016394BD100649596 /* AFServerAddViewController.h */,
+				52E1599116394BD100649596 /* AFServerAddViewController.m */,
 				521422D1162C087B00430CA4 /* AFDetailViewController.h */,
 				521422D2162C087B00430CA4 /* AFDetailViewController.m */,
+				52E159861634EA8E00649596 /* AFCommon.h */,
 			);
 			path = AirFiles;
 			sourceTree = "<group>";
@@ -234,6 +265,11 @@
 				521422D3162C087B00430CA4 /* AFDetailViewController.m in Sources */,
 				5232DFF5162D2B7700495962 /* AFProtocolViewController.m in Sources */,
 				5232E003162D38F800495962 /* AFBluetooth.m in Sources */,
+				5203825516312D420011FC2F /* AFFtp.m in Sources */,
+				52E1599216394BD100649596 /* AFServerAddViewController.m in Sources */,
+				52E1599B163A79B100649596 /* AFService.m in Sources */,
+				52E1599E163A824A00649596 /* AFSplitViewController.m in Sources */,
+				52E159A1163A833100649596 /* AFServiceOperate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +312,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "CA6A131F-3C6F-40C8-A908-795C218EDC16";
+				PROVISIONING_PROFILE = "29F37C19-97A3-4B72-90A0-C297B4274F8E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,7 +397,8 @@
 				52CB144B162BD5F800208E79 /* AirFiles.xcdatamodel */,
 			);
 			currentVersion = 52CB144B162BD5F800208E79 /* AirFiles.xcdatamodel */;
-			path = AirFiles.xcdatamodeld;
+			name = AirFiles.xcdatamodeld;
+			path = AirFiles/AirFiles.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

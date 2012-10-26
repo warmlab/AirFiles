@@ -9,6 +9,11 @@
 #ifndef AirFiles_AFCommon_h
 #define AirFiles_AFCommon_h
 
-
+enum _protocol_type{
+	PROTOCOL_UNKNOWN,
+	BLUETOOTH,
+	FTP,
+	PROTOCOL_MAX
+};
 
 #endif

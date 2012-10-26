@@ -9,6 +9,10 @@
 #import "AFAppDelegate.h"
 
 #import "AFMainViewController.h"
+#import "AFSplitViewController.h"
+#import "AFProtocolViewController.h"
+#import "AFDetailViewController.h"
+
 #import "AFServiceViewController.h"
 #import "AFDetailViewController.h"
 
@@ -22,16 +26,51 @@
 {
     // Override point for customization after application launch.
 	
+	//[[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+
+	//NSManagedObjectContext *context = [self managedObjectContext];
+#if 0
+	AFProtocol *protocol = (AFProtocol *)[NSEntityDescription insertNewObjectForEntityForName:@"Protocol" inManagedObjectContext:context];
+	protocol.pk = 1;
+	protocol.name = @"Bluetooth";
+	protocol.desc = @"Bluetooth";
+	
+	NSError *error;
+	
+	if (![context save: &error]) {
+		NSLog(@"Save protocol error");
+	} else {
+		NSLog(@"Save protocol okay");
+	}
+	
+	protocol = (AFProtocol *)[NSEntityDescription insertNewObjectForEntityForName:@"Protocol" inManagedObjectContext:context];
+	protocol.pk = 2;
+	protocol.name = @"FTP";
+	protocol.desc = @"File Transfer Protocol";
+	
+	if (![context save: &error]) {
+		NSLog(@"Save protocol error");
+	} else {
+		NSLog(@"Save protocol okay");
+	}
+#endif
+	//moc = context;
+	
 	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		UISplitViewController *controller = (UISplitViewController *)self.window.rootViewController;
 		//controller.managedObjectContext = self.managedObjectContext;
 		controller.delegate = [controller.viewControllers lastObject];
+		NSLog(@"views size: %d", controller.viewControllers.count);
+		AFProtocolViewController *pvc  = [controller.viewControllers objectAtIndex: 0];
+		pvc.managedObjectContext = self.managedObjectContext;
+		//AFDetailViewController *dvc = [controller.viewControllers lastObject];
 		//AFDetailViewController *detailViewController =(AFDetailViewController *) [controller.viewControllers lastObject];
 		//AFServiceViewController *menuViewController = [(AFServiceViewController *) [controller.viewControllers objectAtIndex: 0] topViewController];
 	} else {
 		AFMainViewController *controller = (AFMainViewController *)self.window.rootViewController;
 		controller.managedObjectContext = self.managedObjectContext;
 	}
+	
     return YES;
 }
 
@@ -156,6 +195,16 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+	NSLog(@"my token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 
 @end

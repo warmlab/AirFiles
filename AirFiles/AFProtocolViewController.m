@@ -9,6 +9,36 @@
 #import "AFProtocolViewController.h"
 #import "AFServiceViewController.h"
 
+#import "AFCommon.h"
+
+extern NSManagedObjectContext *moc;
+
+@interface AFProtocol()
+
+@end
+
+@implementation AFProtocol
+
+@synthesize protocol, name, desc;
+
+-(AFProtocol *) initWith: (NSInteger) p withName: (NSString*) n withDesc: (NSString*)d
+{
+	self = [super init];
+	self.protocol = p;
+	self.name = n;
+	self.desc = d;
+	
+	return self;
+}
+
++(NSArray *) getAllProtocols
+{
+	AFProtocol *p = [[AFProtocol alloc] initWith: FTP withName: @"FTP" withDesc: @"File Transfer Protocol"];
+	return [NSArray arrayWithObjects: p, nil];
+}
+
+@end
+
 @interface AFProtocolViewController ()
 
 @end
@@ -17,6 +47,8 @@
 {
 	NSArray *protocols_array;
 }
+
+@synthesize managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,7 +72,10 @@
 	// self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Services" style:UIBarButtonItemStylePlain target: self action: @selector(showServerTypes:)];
 	
 	//protocols_array = [[NSArray alloc] initWithObjects:@"Windows File Share", @"FTP", nil];
-	protocols_array = [[NSArray alloc] initWithObjects:@"Bluetooth", nil];
+	//protocols_array = [[NSArray alloc] initWithObjects:@"Bluetooth", @"FTP", nil];
+	//NSManagedObjectContext *context = [self managedObjectContext];
+	
+	protocols_array = [[NSMutableArray alloc] initWithArray: [AFProtocol getAllProtocols]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +101,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [protocols_array count];
+    return protocols_array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +114,9 @@
 	}
 	
     // Configure the cell...
-	cell.textLabel.text = [protocols_array objectAtIndex: indexPath.row];
+	AFProtocol *p = [protocols_array objectAtIndex: indexPath.row];
+	cell.textLabel.text = p.name;
+	cell.detailTextLabel.text = p.desc;
 	cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -137,8 +174,10 @@
      */
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"air_files_ipad" bundle: [NSBundle mainBundle]];
 	AFServiceViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"sb_services"];
-	detailViewController.service_type = indexPath.row;
-	detailViewController.title = [protocols_array objectAtIndex: indexPath.row];
+	detailViewController.managedObjectContext = self.managedObjectContext;
+	AFProtocol *p = [protocols_array objectAtIndex:indexPath.row];
+	detailViewController.service_type =  p.protocol;
+	detailViewController.title = [[protocols_array objectAtIndex: indexPath.row] name];
 	[self.navigationController pushViewController: detailViewController animated: YES];
 }
 

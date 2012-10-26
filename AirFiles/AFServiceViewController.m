@@ -8,6 +8,13 @@
 
 #import "AFServiceViewController.h"
 
+#import "AFServerAddViewController.h"
+
+#import "AFServiceOperate.h"
+#import "AFService.h"
+
+#import "AFCommon.h"
+
 @interface AFServiceViewController ()
 
 @end
@@ -20,9 +27,10 @@
     CBCentralManager *manager;
     NSMutableArray *perpherals;
     NSDictionary *dictionary;
+	NSMutableArray *services;
 }
 
-@synthesize service_type, title;
+@synthesize service_type, title, tableView, managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,6 +54,7 @@
 	// self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Services" style:UIBarButtonItemStylePlain target: self action: @selector(showServerTypes:)];
 	self.navigationItem.title = title;
 	
+	if (service_type == BLUETOOTH) {
 	//bluetooth = [AFBluetooth new];
 	manager = [[CBCentralManager alloc] initWithDelegate: self queue:nil];
     
@@ -53,6 +62,18 @@
     dictionary = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
     //[manager scanForPeripheralsWithServices:nil options:dictionary];
     [manager scanForPeripheralsWithServices:[NSArray arrayWithObject:[CBUUID UUIDWithString:@"180A"]] options:dictionary];
+	} else if (service_type == FTP) {
+		//NSManagedObjectContext *context = [self managedObjectContext];
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target: self action: @selector(addFtpService:)];
+		
+		AFServiceOperate *operate = [AFServiceOperate new];
+		operate.managedObjectContext = self.managedObjectContext;
+		[services addObjectsFromArray: [operate getServicesByProtocol: service_type]];
+	}
+	
+	self.contentSizeForViewInPopover = CGSizeMake(150.0, 140.0);
+	
+	
 }
 
 - (void)viewDidUnload
@@ -72,6 +93,61 @@
 	return YES;
 }
 
+#pragma mark - action
+-(IBAction)addFtpService:(id)sender
+{
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"air_files_ipad" bundle: [NSBundle mainBundle]];
+	AFServerAddViewController *popoverContent = [storyboard instantiateViewControllerWithIdentifier:@"sb_add_server"];
+	
+	//UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController: serverAddController];
+	//build our custom popover view
+	//UIViewController* popoverContent = [[UIViewController alloc] init];
+	//UIView* popoverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 400)];
+	//popoverView.backgroundColor = [UIColor blueColor];
+	//popoverContent.view = popoverView;
+	
+	//resize the popover view shown
+	//in the current view to the view's size
+	
+	//[popoverContent setFrame:CGRectMake(0, 0, 300, 400)];
+	//popoverContent.view.frame = CGRectMake(0, 0, 300, 400);
+	//CGSizeMake(300, 400);
+	popoverContent.contentSizeForViewInPopover = CGSizeMake(768, 200);
+	//popoverContent.view.frame = CGSizeMake(300, 400);
+	
+	//popoverController.delegate = self;
+	popoverContent.delegate = self;
+	//create a popover controller
+	popoverController = [[UIPopoverController alloc]
+							  initWithContentViewController:popoverContent];
+	
+	//present the popover view non-modal with a
+	//refrence to the toolbar button which was pressed
+	[popoverController presentPopoverFromBarButtonItem:sender
+								   permittedArrowDirections:UIPopoverArrowDirectionUp
+												   animated:YES];
+	
+	//[popoverController dismissPopoverAnimated:YES];
+	//release the popover content
+	//[popoverView release];
+	//[popoverContent release];
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+	// add your code here
+}
+
+- (void)reload_data_and_close
+{
+	[services removeAllObjects];
+	AFServiceOperate *operate = [AFServiceOperate new];
+	operate.managedObjectContext = self.managedObjectContext;
+	[services addObjectsFromArray: [operate getServicesByProtocol: service_type]];
+	[tableView reloadData];
+	[popoverController dismissPopoverAnimated: YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -83,8 +159,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-	NSLog(@"%d", [bluetooth.perpherals count]);
-    return [bluetooth.perpherals count];
+	NSLog(@"services count: %d", [services count]);
+    return [services count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,11 +169,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
     if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 	
     // Configure the cell...
-	cell.textLabel.text = @"da";
+	AFService *s = [services objectAtIndex: indexPath.row];
+	cell.textLabel.text = s.name;
+	cell.detailTextLabel.text = s.url;
     
     return cell;
 }

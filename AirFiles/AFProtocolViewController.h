@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@interface AFProtocol : NSObject
+
+@property (atomic) NSInteger protocol;
+@property (nonatomic, retain) NSString *name, *desc;
+
+@end
+
 @interface AFProtocolViewController : UITableViewController
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
