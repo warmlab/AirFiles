@@ -33,6 +33,51 @@
             </objects>
             <point key="canvasLocation" x="-1764" y="379"/>
         </scene>
+        <!--List View Controller-->
+        <scene sceneID="fMO-Gc-Cac">
+            <objects>
+                <tableViewController storyboardIdentifier="sb_list" id="fCM-mE-9Ux" customClass="AFFTPListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mty-zM-ox9">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FileCell" textLabel="QaE-YE-oYN" detailTextLabel="N1M-Ib-kWO" style="IBUITableViewCellStyleSubtitle" id="0BY-K8-zMm">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QaE-YE-oYN">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N1M-Ib-kWO">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fCM-mE-9Ux" id="zjX-SM-IlK"/>
+                            <outlet property="delegate" destination="fCM-mE-9Ux" id="JE6-dg-dRh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYm-F2-fBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1749" y="1576"/>
+        </scene>
         <!--Protocol View Controller - Protocols-->
         <scene sceneID="szr-mj-a6w">
             <objects>
@@ -121,7 +166,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Mk0-nU-eZg"/>
                     <connections>
-                        <outlet property="tableView" destination="dvg-8f-8gE" id="KOb-6h-Ao7"/>
+                        <outlet property="m_tableView" destination="dvg-8f-8gE" id="31F-xx-Kjx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xy-vI-gym" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,6 +288,34 @@
             <point key="canvasLocation" x="-2748" y="-89"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AFDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="AFFTPListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFFTPListViewController.h"/>
+        </class>
+        <class className="AFProtocolViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFProtocolViewController.h"/>
+        </class>
+        <class className="AFServerAddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFServerAddViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="input_name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="input_url" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="title_bar" candidateClass="UINavigationBar"/>
+            </relationships>
+        </class>
+        <class className="AFServiceViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFServiceViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="m_tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

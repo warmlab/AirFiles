@@ -28,10 +28,14 @@
 		52CB1455162BD67400208E79 /* air_files_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1454162BD67400208E79 /* air_files_iphone.storyboard */; };
 		52CB1497162BD96800208E79 /* AFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CB1496162BD96800208E79 /* AFMainViewController.m */; };
 		52CB1499162BDA2100208E79 /* air_files_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */; };
+		52CEB0E51652334F00E0F721 /* AFNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CEB0E41652334F00E0F721 /* AFNetworkManager.m */; };
+		52CEB0EC1652458500E0F721 /* AFFileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CEB0EB1652458400E0F721 /* AFFileListViewController.m */; };
+		52CEB0F7165638EE00E0F721 /* AFFTPListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CEB0F6165638ED00E0F721 /* AFFTPListViewController.m */; };
 		52E1599216394BD100649596 /* AFServerAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599116394BD100649596 /* AFServerAddViewController.m */; };
 		52E1599B163A79B100649596 /* AFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599A163A79B100649596 /* AFService.m */; };
 		52E1599E163A824A00649596 /* AFSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1599D163A824A00649596 /* AFSplitViewController.m */; };
 		52E159A1163A833100649596 /* AFServiceOperate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E159A0163A833100649596 /* AFServiceOperate.m */; };
+		52F8025F163E2F18001FC61C /* AFDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F8025E163E2F18001FC61C /* AFDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,12 @@
 		52CB1495162BD96800208E79 /* AFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMainViewController.h; sourceTree = "<group>"; };
 		52CB1496162BD96800208E79 /* AFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMainViewController.m; sourceTree = "<group>"; };
 		52CB1498162BDA2100208E79 /* air_files_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = air_files_ipad.storyboard; sourceTree = "<group>"; };
+		52CEB0E31652334F00E0F721 /* AFNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkManager.h; sourceTree = "<group>"; };
+		52CEB0E41652334F00E0F721 /* AFNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkManager.m; sourceTree = "<group>"; };
+		52CEB0EA1652458400E0F721 /* AFFileListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFFileListViewController.h; sourceTree = "<group>"; };
+		52CEB0EB1652458400E0F721 /* AFFileListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFFileListViewController.m; sourceTree = "<group>"; };
+		52CEB0F5165638EC00E0F721 /* AFFTPListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFFTPListViewController.h; sourceTree = "<group>"; };
+		52CEB0F6165638ED00E0F721 /* AFFTPListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFFTPListViewController.m; sourceTree = "<group>"; };
 		52E159861634EA8E00649596 /* AFCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCommon.h; sourceTree = "<group>"; };
 		52E1599016394BD100649596 /* AFServerAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFServerAddViewController.h; sourceTree = "<group>"; };
 		52E1599116394BD100649596 /* AFServerAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFServerAddViewController.m; sourceTree = "<group>"; };
@@ -75,6 +85,8 @@
 		52E1599D163A824A00649596 /* AFSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSplitViewController.m; sourceTree = "<group>"; };
 		52E1599F163A833100649596 /* AFServiceOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFServiceOperate.h; path = AirFiles/AFServiceOperate.h; sourceTree = "<group>"; };
 		52E159A0163A833100649596 /* AFServiceOperate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFServiceOperate.m; path = AirFiles/AFServiceOperate.m; sourceTree = "<group>"; };
+		52F8025D163E2F18001FC61C /* AFDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFDataManager.h; path = AirFiles/AFDataManager.h; sourceTree = "<group>"; };
+		52F8025E163E2F18001FC61C /* AFDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFDataManager.m; path = AirFiles/AFDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,8 @@
 		5232DFEB162D271300495962 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				52F8025D163E2F18001FC61C /* AFDataManager.h */,
+				52F8025E163E2F18001FC61C /* AFDataManager.m */,
 				52CB144A162BD5F800208E79 /* AirFiles.xcdatamodeld */,
 				52E15999163A79B100649596 /* AFService.h */,
 				52E1599A163A79B100649596 /* AFService.m */,
@@ -109,6 +123,8 @@
 		5232DFFA162D37F800495962 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				52CEB0E31652334F00E0F721 /* AFNetworkManager.h */,
+				52CEB0E41652334F00E0F721 /* AFNetworkManager.m */,
 				5232E001162D38F800495962 /* AFBluetooth.h */,
 				5232E002162D38F800495962 /* AFBluetooth.m */,
 				5203825316312D420011FC2F /* AFFtp.h */,
@@ -165,6 +181,10 @@
 				5232DFF4162D2B7700495962 /* AFProtocolViewController.m */,
 				521422CE162C083200430CA4 /* AFServiceViewController.h */,
 				521422CF162C083200430CA4 /* AFServiceViewController.m */,
+				52CEB0F5165638EC00E0F721 /* AFFTPListViewController.h */,
+				52CEB0F6165638ED00E0F721 /* AFFTPListViewController.m */,
+				52CEB0EA1652458400E0F721 /* AFFileListViewController.h */,
+				52CEB0EB1652458400E0F721 /* AFFileListViewController.m */,
 				52E1599016394BD100649596 /* AFServerAddViewController.h */,
 				52E1599116394BD100649596 /* AFServerAddViewController.m */,
 				521422D1162C087B00430CA4 /* AFDetailViewController.h */,
@@ -270,6 +290,10 @@
 				52E1599B163A79B100649596 /* AFService.m in Sources */,
 				52E1599E163A824A00649596 /* AFSplitViewController.m in Sources */,
 				52E159A1163A833100649596 /* AFServiceOperate.m in Sources */,
+				52F8025F163E2F18001FC61C /* AFDataManager.m in Sources */,
+				52CEB0E51652334F00E0F721 /* AFNetworkManager.m in Sources */,
+				52CEB0EC1652458500E0F721 /* AFFileListViewController.m in Sources */,
+				52CEB0F7165638EE00E0F721 /* AFFTPListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

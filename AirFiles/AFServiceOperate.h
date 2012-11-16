@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AFServiceOperate : NSObject
+#import "AFService.h"
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@interface AFServiceOperate : NSObject
 
 -(NSArray *) getServicesByProtocol: (NSInteger)protocol;
 -(NSInteger) saveServiceWithName: (NSString *)name withUrl: (NSString *) url withProtocol: (int16_t) protocol;
+-(NSInteger) removeService: (AFService *)service;
 
 @end

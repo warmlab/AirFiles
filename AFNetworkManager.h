@@ -1,5 +1,5 @@
 /*
-    File:       NetworkManager.h
+    File:       AFNetworkManager.h
 
     Contains:   Shared state and utilities for networking.
 
@@ -53,9 +53,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkManager : NSObject
+@interface AFNetworkManager : NSObject
 
-+ (NetworkManager *)sharedInstance;
++ (AFNetworkManager *)sharedInstance;
 
 - (NSURL *)smartURLForString:(NSString *)str;
 - (BOOL)isImageURL:(NSURL *)url;

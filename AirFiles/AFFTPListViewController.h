@@ -10,4 +10,7 @@
 
 @interface AFFTPListViewController : UITableViewController
 
+@property (nonatomic, strong, readwrite) NSString * url_str;
+@property (nonatomic, copy,   readwrite) NSString *        title;
+
 @end

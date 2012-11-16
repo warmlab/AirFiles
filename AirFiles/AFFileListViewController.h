@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AFFileListViewController : UITableViewController
+#include "AFFtp.h"
+
+@interface AFFileListViewController : UITableViewController <AFFtpDelegate>
+
+@property (nonatomic, strong, readwrite) NSString *title;
+@property (nonatomic, strong, readwrite) AFFtp * ftp;
+@property (nonatomic, strong, readwrite) NSMutableArray *  listEntries;
 
 @end

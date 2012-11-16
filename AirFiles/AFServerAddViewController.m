@@ -52,7 +52,7 @@
 	// add server
 
 	AFServiceOperate *operate = [AFServiceOperate new];
-	operate.managedObjectContext = self.managedObjectContext;
+	//operate.managedObjectContext = self.managedObjectContext;
 	if (![operate saveServiceWithName:input_name.text withUrl:input_url.text withProtocol:FTP]) {
 		[delegate reload_data_and_close];
 	}

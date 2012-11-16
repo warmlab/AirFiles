@@ -16,11 +16,13 @@
 #import "AFServiceViewController.h"
 #import "AFDetailViewController.h"
 
+#import "AFDataManager.h"
+
 @implementation AFAppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+//@synthesize managedObjectContext = _managedObjectContext;
+//@synthesize managedObjectModel = _managedObjectModel;
+//@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -57,18 +59,20 @@
 	//moc = context;
 	
 	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		UISplitViewController *controller = (UISplitViewController *)self.window.rootViewController;
+		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 		//controller.managedObjectContext = self.managedObjectContext;
-		controller.delegate = [controller.viewControllers lastObject];
-		NSLog(@"views size: %d", controller.viewControllers.count);
-		AFProtocolViewController *pvc  = [controller.viewControllers objectAtIndex: 0];
-		pvc.managedObjectContext = self.managedObjectContext;
+		splitViewController.delegate = [splitViewController.viewControllers lastObject];
+		//NSLog(@"views size: %d", controller.viewControllers.count);
+		//UINavigationController *nc  = [controller.viewControllers objectAtIndex: 0];
+		AFProtocolViewController *masterViewController = (AFProtocolViewController*)[[splitViewController.viewControllers objectAtIndex: 0] topViewController];
+		//pvc.managedObjectContext = self.managedObjectContext;
 		//AFDetailViewController *dvc = [controller.viewControllers lastObject];
-		//AFDetailViewController *detailViewController =(AFDetailViewController *) [controller.viewControllers lastObject];
+		AFDetailViewController *detailViewController =(AFDetailViewController *) [splitViewController.viewControllers lastObject];
 		//AFServiceViewController *menuViewController = [(AFServiceViewController *) [controller.viewControllers objectAtIndex: 0] topViewController];
+		//masterViewController.delegate = detailViewController;
 	} else {
 		AFMainViewController *controller = (AFMainViewController *)self.window.rootViewController;
-		controller.managedObjectContext = self.managedObjectContext;
+		//controller.managedObjectContext = self.managedObjectContext;
 	}
 	
     return YES;
@@ -99,9 +103,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+    //[self saveContext];
+	[[AFDataManager sharedInstance] save];
 }
 
+#if 0
 - (void)saveContext
 {
     NSError *error = nil;
@@ -196,6 +202,7 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+#endif
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {

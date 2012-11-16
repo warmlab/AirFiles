@@ -20,7 +20,7 @@
 
 @property (atomic) NSInteger service_type;
 @property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UITableView *m_tableView;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

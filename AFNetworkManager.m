@@ -1,5 +1,5 @@
 /*
-    File:       NetworkManager.m
+    File:       AFNetworkManager.m
 
     Contains:   Shared state and utilities for networking.
 
@@ -51,9 +51,9 @@
 
 */
 
-#import "NetworkManager.h"
+#import "AFNetworkManager.h"
 
-@interface NetworkManager ()
+@interface AFNetworkManager ()
 
 // read/write redeclaration of public read-only property
 
@@ -61,17 +61,17 @@
 
 @end
 
-@implementation NetworkManager
+@implementation AFNetworkManager
 
 @synthesize networkOperationCount = _networkOperationCount;
 
-+ (NetworkManager *)sharedInstance
++ (AFNetworkManager *)sharedInstance
 {
     static dispatch_once_t  onceToken;
-    static NetworkManager * sSharedInstance;
+    static AFNetworkManager * sSharedInstance;
 
     dispatch_once(&onceToken, ^{
-        sSharedInstance = [[NetworkManager alloc] init];
+        sSharedInstance = [[AFNetworkManager alloc] init];
     });
     return sSharedInstance;
 }

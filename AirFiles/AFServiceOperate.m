@@ -9,37 +9,53 @@
 #import "AFServiceOperate.h"
 #import "AFService.h"
 
+#import "AFDataManager.h"
+
 @implementation AFServiceOperate
 
-@synthesize managedObjectContext;
+-(AFServiceOperate *) init
+{
+    self = [super init];
+    return self;
+}
 
 -(NSArray *) getServicesByProtocol: (NSInteger)protocol
 {
     NSFetchRequest *request = [NSFetchRequest new];
-	NSEntityDescription *entity = [NSEntityDescription entityForName: @"Service" inManagedObjectContext: managedObjectContext];
+	NSEntityDescription *entity = [NSEntityDescription entityForName: @"Service" inManagedObjectContext: [AFDataManager sharedInstance].mainObjectContext];
 	[request setEntity: entity];
 	
 	NSError *error;
-	return [[managedObjectContext executeFetchRequest: request error: &error] copy];
+	NSArray *array = [[[AFDataManager sharedInstance].mainObjectContext executeFetchRequest: request error: &error] copy];
+    
+    NSLog(@"array size: %d", array.count);
+    
+    return array;
 }
 
 -(NSInteger) saveServiceWithName: (NSString *)name withUrl: (NSString *) url withProtocol: (int16_t) protocol
 {
-    AFService *s = (AFService *)[NSEntityDescription insertNewObjectForEntityForName:@"Service" inManagedObjectContext: managedObjectContext];
+    AFService *s = (AFService *)[NSEntityDescription insertNewObjectForEntityForName:@"Service" inManagedObjectContext: [AFDataManager sharedInstance].mainObjectContext];
     
 	s.name = name;
 	s.url = url;
     s.protocol = protocol;
     s.pk = 1;
 	
-	NSError *error;
-	
-	if (![managedObjectContext save: &error]) {
-		NSLog(@"Save protocol error");
-        return 1;
-	} else {
-		NSLog(@"Save protocol okay");
-        return 0;
-	}
+	[[AFDataManager sharedInstance] save];
+    
+    return 0;
 }
+
+-(NSInteger) removeService: (AFService *)service
+{
+    //AFService *s = (AFService *)[NSEntityDescription insertNewObjectForEntityForName:@"Service" inManagedObjectContext: [AFDataManager sharedInstance].mainObjectContext];
+    NSManagedObject *eventToDelete = [[AFDataManager sharedInstance].mainObjectContext objectWithID: service.objectID];
+    [[AFDataManager sharedInstance].mainObjectContext deleteObject: eventToDelete];
+    
+    [[AFDataManager sharedInstance] save];
+    
+	return 0;
+}
+
 @end

@@ -10,10 +10,14 @@
 
 #import "AFServerAddViewController.h"
 
+#import "AFFileListViewController.h"
+
 #import "AFServiceOperate.h"
 #import "AFService.h"
 
 #import "AFCommon.h"
+
+#import "AFFTPListViewController.h"
 
 @interface AFServiceViewController ()
 
@@ -28,9 +32,13 @@
     NSMutableArray *perpherals;
     NSDictionary *dictionary;
 	NSMutableArray *services;
+	AFServiceOperate *operate;
+	UIBarButtonItem *backButton;
+	
+	AFFtp *ftp;
 }
 
-@synthesize service_type, title, tableView, managedObjectContext;
+@synthesize service_type, title, m_tableView, managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -53,6 +61,7 @@
 	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	// self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Services" style:UIBarButtonItemStylePlain target: self action: @selector(showServerTypes:)];
 	self.navigationItem.title = title;
+	backButton = self.navigationItem.backBarButtonItem;
 	
 	if (service_type == BLUETOOTH) {
 	//bluetooth = [AFBluetooth new];
@@ -64,16 +73,20 @@
     [manager scanForPeripheralsWithServices:[NSArray arrayWithObject:[CBUUID UUIDWithString:@"180A"]] options:dictionary];
 	} else if (service_type == FTP) {
 		//NSManagedObjectContext *context = [self managedObjectContext];
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target: self action: @selector(addFtpService:)];
-		
-		AFServiceOperate *operate = [AFServiceOperate new];
-		operate.managedObjectContext = self.managedObjectContext;
+		// self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target: self action: @selector(addFtpService:)];
+		self.navigationItem.rightBarButtonItem = self.editButtonItem;
+		//self.editButtonItem.action = @selector(editAction:);
+
 		[services addObjectsFromArray: [operate getServicesByProtocol: service_type]];
 	}
 	
 	self.contentSizeForViewInPopover = CGSizeMake(150.0, 140.0);
 	
+	services = [NSMutableArray new];
+	operate = [AFServiceOperate new];
+	[services addObjectsFromArray: [operate getServicesByProtocol: service_type]];
 	
+	ftp = [[AFFtp alloc] init];
 }
 
 - (void)viewDidUnload
@@ -94,10 +107,12 @@
 }
 
 #pragma mark - action
+
 -(IBAction)addFtpService:(id)sender
 {
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"air_files_ipad" bundle: [NSBundle mainBundle]];
 	AFServerAddViewController *popoverContent = [storyboard instantiateViewControllerWithIdentifier:@"sb_add_server"];
+	popoverContent.managedObjectContext = self.managedObjectContext;
 	
 	//UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController: serverAddController];
 	//build our custom popover view
@@ -141,11 +156,34 @@
 - (void)reload_data_and_close
 {
 	[services removeAllObjects];
-	AFServiceOperate *operate = [AFServiceOperate new];
-	operate.managedObjectContext = self.managedObjectContext;
+	
+	//operate.managedObjectContext = self.managedObjectContext;
 	[services addObjectsFromArray: [operate getServicesByProtocol: service_type]];
-	[tableView reloadData];
+	[m_tableView reloadData];
 	[popoverController dismissPopoverAnimated: YES];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    // Make sure you call super first
+    [super setEditing:editing animated:animated];
+	
+	/*
+    if (editing)
+    {
+        self.editButtonItem.title = NSLocalizedString(@"Cancel", @"Cancel");
+    }
+    else
+    {
+        self.editButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
+    }
+	*/
+	NSLog(@"adfadfadsasdf");
+	if (editing) {
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target: self action: @selector(addFtpService:)];
+	} else {
+		self.navigationItem.leftBarButtonItem = backButton;
+	}
 }
 
 #pragma mark - Table view data source
@@ -176,32 +214,39 @@
 	AFService *s = [services objectAtIndex: indexPath.row];
 	cell.textLabel.text = s.name;
 	cell.detailTextLabel.text = s.url;
-    
+
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return UITableViewCellEditingStyleDelete;
+	// return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+}
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[operate removeService:[services objectAtIndex: indexPath.row]];
+		[services removeObjectAtIndex: indexPath.row];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+		NSLog(@"Insert Service");
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -223,13 +268,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	AFService *s = [services objectAtIndex: indexPath.row];
+	//AFFtp *ftp = [[AFFtp alloc] initWithUrl: s.url];
+	//ftp.url = [NSURL URLWithString: s.url];
+	//[ftp openFtpClient];
+	
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"air_files_ipad" bundle: [NSBundle mainBundle]];
+	AFFTPListViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"sb_list"];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
+	//detailViewController.ftp = ftp;
+	//detailViewController.listEntries = ftp.listEntries;
+	detailViewController.title = s.name;
+	detailViewController.url_str = s.url;
+	//NSLog(@"listEntries count: %d", ftp.listEntries.count);
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {

@@ -8,11 +8,15 @@
 
 #import "AFFileListViewController.h"
 
+#include <sys/dirent.h>
+
 @interface AFFileListViewController ()
 
 @end
 
 @implementation AFFileListViewController
+
+@synthesize listEntries, ftp, title;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +36,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.navigationItem.title = title;
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemRefresh target: self action: @selector(refreshFileList:)];
+	
+	listEntries = ftp.listEntries;
+	ftp.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,28 +49,75 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)didFinishListing
+{
+	listEntries = ftp.listEntries;
+	NSLog(@"listEntries count: %d in %s", __func__);
+	[self.tableView reloadData];
+}
+
+-(IBAction)refreshFileList:(id)sender
+{
+	listEntries = ftp.listEntries;
+	[self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return listEntries.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"FileCell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+    if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+	}
     
     // Configure the cell...
+	NSDictionary *dict = [listEntries objectAtIndex: indexPath.row];
+	/*for (NSString *key in [dict allKeys]) {
+		//cell.detailTextLabel.text = [dict valueForKey: key];
+		NSLog(@"%@ -- %@", key, [dict valueForKey: key]);
+	}*/
+
+	cell.textLabel.text = [dict valueForKey: (id)kCFFTPResourceName];
+	
+	NSString *dateStr, *sizeStr;
+    char                modeCStr[12];
+	
+	int type = [[dict valueForKey:(id)kCFFTPResourceType] integerValue];
+	if (type == DT_DIR) {
+		// folder icon
+		sizeStr = @"-";
+	} else if (type == DT_REG) {
+		// file icon
+		unsigned long long size = [[dict valueForKey: (id)kCFFTPResourceSize] unsignedLongLongValue];
+		sizeStr = [NSString stringWithFormat: @"%llu", size];
+	}
+	
+	NSInteger modeNum = [[dict objectForKey:(id) kCFFTPResourceMode] intValue];
+	strmode(modeNum + DTTOIF(type), modeCStr);
+	
+	NSDate* date = [dict objectForKey:(id) kCFFTPResourceModDate];
+	NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+	
+	DateFormatter.dateStyle = NSDateFormatterShortStyle;
+	DateFormatter.timeStyle = NSDateFormatterShortStyle;
+	dateStr = [DateFormatter stringFromDate:date];
+	
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%s %@ %@", modeCStr, sizeStr, dateStr];
     
     return cell;
 }
